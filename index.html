@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Martin Zurita — Abogado | Legal & Compliance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #0B1624;
+    --cream-dark: #0F1E30;
+    --ink: #D8E8F5;
+    --ink-soft: #9BB5CE;
+    --gold: #4A9FD4;
+    --gold-light: #6BB8E8;
+    --muted: #8AAFC8;
+    --border: rgba(74, 159, 212, 0.18);
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 4rem;
+    background: rgba(11, 22, 36, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    transition: padding 0.3s ease;
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-logo span {
+    color: var(--gold);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 7rem 4rem 4rem;
+    gap: 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    width: 50vw;
+    height: 110vh;
+    background: var(--cream-dark);
+    border-radius: 2px;
+    z-index: 0;
+    transform: rotate(-2deg);
+  }
+
+  .hero-text {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 2rem;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-subtitle {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+
+  .hero-desc {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    max-width: 38ch;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: #FAF7F0;
+    padding: 0.75rem 2rem;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: #144A82;
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink);
+    padding: 0.75rem 2rem;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-block;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .hero-visual {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hero-card {
+    background: white;
+    border: 1px solid rgba(26, 92, 158, 0.15);
+    padding: 1.5rem 1.75rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    opacity: 0;
+    transform: translateX(20px);
+    animation: slideIn 0.6s ease forwards;
+  }
+
+  .hero-card:nth-child(1) { animation-delay: 0.3s; }
+  .hero-card:nth-child(2) { animation-delay: 0.5s; }
+  .hero-card:nth-child(3) { animation-delay: 0.7s; }
+
+  @keyframes slideIn {
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .card-icon {
+    width: 40px;
+    height: 40px;
+    background: #E8F0F8;
+    border: 1px solid rgba(26, 92, 158, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1rem;
+  }
+
+  .card-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #1A5C9E;
+    margin-bottom: 0.2rem;
+  }
+
+  .card-value {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #0D1B2A;
+  }
+
+  /* SECTION BASE */
+  section {
+    padding: 6rem 4rem;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 1.5rem;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  /* SOBRE MÍ */
+  .about {
+    background: var(--cream-dark);
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .about-left {
+    position: sticky;
+    top: 7rem;
+  }
+
+  .about-body {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    line-height: 1.9;
+  }
+
+  .about-body p + p {
+    margin-top: 1.25rem;
+  }
+
+  .about-body strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin-top: 2rem;
+  }
+
+  .skill-tag {
+    background: rgba(74, 159, 212, 0.08);
+    border: 1px solid var(--border);
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .skill-tag::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* SERVICIOS */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    margin-top: 3rem;
+  }
+
+  .service-card {
+    background: var(--cream);
+    padding: 2.5rem 2rem;
+    transition: background 0.2s;
+    cursor: default;
+  }
+
+  .service-card:hover {
+    background: #142234;
+  }
+
+  .service-num {
+    font-family: var(--serif);
+    font-size: 3rem;
+    font-weight: 300;
+    color: rgba(74, 159, 212, 0.2);
+    line-height: 1;
+    margin-bottom: 1.25rem;
+    transition: color 0.2s;
+  }
+
+  .service-card:hover .service-num {
+    color: var(--gold);
+  }
+
+  .service-name {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.85rem;
+    line-height: 1.25;
+  }
+
+  .service-desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+
+  /* EXPERIENCIA */
+  .experience {
+    background: var(--cream-dark);
+  }
+
+  .exp-header {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .timeline {
+    margin-top: 3rem;
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 2rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    position: relative;
+  }
+
+  .timeline-item:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .timeline-period {
+    font-size: 0.78rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    padding-top: 0.25rem;
+    font-family: var(--sans);
+  }
+
+  .timeline-company {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+
+  .timeline-role {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .timeline-desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+
+  .timeline-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.85rem;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    color: var(--gold);
+    background: rgba(74, 159, 212, 0.08);
+    border: 1px solid rgba(74, 159, 212, 0.25);
+    padding: 0.25rem 0.6rem;
+  }
+
+  /* FORMACION */
+  .formation {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .formation-left {
+    position: sticky;
+    top: 7rem;
+  }
+
+  .formation-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .formation-item {
+    padding: 1.75rem 0;
+    border-top: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 1.5rem;
+  }
+
+  .formation-item:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .formation-year {
+    font-size: 0.78rem;
+    color: var(--muted);
+    padding-top: 0.15rem;
+  }
+
+  .formation-institution {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.25rem;
+  }
+
+  .formation-title {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .formation-note {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-top: 0.25rem;
+  }
+
+  /* CONTACTO */
+  .contact {
+    background: #060F1A;
+    color: var(--ink);
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .contact .section-label { color: var(--gold-light); }
+  .contact .section-label::before { background: var(--gold-light); }
+  .contact .section-title { color: #E8F3FC; }
+
+  .contact-desc {
+    font-size: 0.92rem;
+    color: #7AAABF;
+    margin-top: 1.25rem;
+    line-height: 1.85;
+  }
+
+  .contact-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: rgba(74, 159, 212, 0.12);
+  }
+
+  .contact-item {
+    background: #0B1A28;
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .contact-item:hover {
+    background: rgba(74, 159, 212, 0.12);
+  }
+
+  .contact-icon {
+    width: 42px;
+    height: 42px;
+    background: rgba(74, 159, 212, 0.1);
+    border: 1px solid rgba(74, 159, 212, 0.3);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1rem;
+    color: var(--gold-light);
+  }
+
+  .contact-item-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 0.15rem;
+  }
+
+  .contact-item-value {
+    font-size: 0.95rem;
+    color: #ffffff;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #040C14;
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(74, 159, 212, 0.12);
+  }
+
+  footer p {
+    font-size: 0.78rem;
+    color: rgba(250, 247, 240, 0.3);
+    letter-spacing: 0.04em;
+  }
+
+  footer .footer-logo {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    color: rgba(250, 247, 240, 0.5);
+    letter-spacing: 0.06em;
+  }
+
+  footer .footer-logo span {
+    color: var(--gold);
+  }
+
+  /* FADE IN ANIMATION */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* HAMBURGER */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: var(--ink);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1.25rem 1.75rem; }
+    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 6rem 1.75rem 3rem;
+      gap: 3rem;
+    }
+
+    .hero::before { display: none; }
+
+    section { padding: 4rem 1.75rem; }
+
+    .about, .exp-header, .formation, .contact {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .about-left, .formation-left { position: static; }
+
+    .timeline-item {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+
+    .formation-item {
+      grid-template-columns: 1fr;
+      gap: 0.3rem;
+    }
+
+    footer {
+      flex-direction: column;
+      gap: 0.75rem;
+      text-align: center;
+      padding: 2rem 1.75rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#inicio" class="nav-logo">Martin <span>Zurita</span></a>
+  <ul class="nav-links">
+    <li><a href="#sobre-mi">Perfil</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#experiencia">Experiencia</a></li>
+    <li><a href="#formacion">Formación</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <button class="nav-toggle" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Abogado — Buenos Aires, Argentina</p>
+    <h1>Martin<br><em>Zurita</em></h1>
+    <p class="hero-subtitle">Legal & Compliance · Contratos · RegTech</p>
+    <p class="hero-desc">
+      Me especializo en el derecho aplicado al negocio digital: desde el registro de tu marca hasta el cumplimiento normativo y la estructuración de contratos.
+    </p>
+    <div class="hero-ctas">
+      <a href="#servicios" class="btn-primary">Ver servicios</a>
+      <a href="#contacto" class="btn-secondary">Contacto</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-card">
+      <div class="card-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A5C9E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div>
+        <p class="card-label">Especialización</p>
+        <p class="card-value">Legal & Compliance · Fintech · Prop. Intelectual</p>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="card-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A5C9E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </div>
+      <div>
+        <p class="card-label">Marcos regulatorios</p>
+        <p class="card-value">CNV · UIF · PSAVs · INPI</p>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="card-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A5C9E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+      </div>
+      <div>
+        <p class="card-label">Formación</p>
+        <p class="card-value">UADE · Buenos Aires</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE MÍ -->
+<section class="about fade-up" id="sobre-mi">
+  <div class="about-left">
+    <p class="section-label">Sobre mí</p>
+    <h2 class="section-title">Derecho<br>al servicio<br>de la <em>innovación</em></h2>
+  </div>
+  <div>
+    <div class="about-body">
+      <p>
+        Soy abogado graduado de la <strong>Universidad Argentina de la Empresa (UADE)</strong>, con experiencia en gestión contractual, compliance y due diligence en entornos corporativos complejos.
+      </p>
+      <p>
+        Actualmente trabajo como <strong>Contract Specialist en Huawei Technologies</strong>, donde gestiono contratos comerciales de principio a fin con foco en cumplimiento normativo y mitigación de riesgos. Esa experiencia me dio una visión práctica del derecho aplicado a operaciones reales de alta exigencia.
+      </p>
+      <p>
+        Me especializo en la intersección entre el derecho y la tecnología financiera: registro de marcas, regulación de activos digitales, KYC/KYB y el ecosistema de fintechs y startups.
+      </p>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-tag">Contratos comerciales</div>
+      <div class="skill-tag">Registro de marcas</div>
+      <div class="skill-tag">AML / PLA</div>
+      <div class="skill-tag">Due diligence</div>
+      <div class="skill-tag">KYC / KYB</div>
+      <div class="skill-tag">Activos digitales</div>
+      <div class="skill-tag">Regulación CNV</div>
+      <div class="skill-tag">PSAVs</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios" class="fade-up">
+  <p class="section-label">Servicios</p>
+  <h2 class="section-title">Áreas de <em>práctica</em></h2>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <p class="service-num">01</p>
+      <h3 class="service-name">Derecho Contractual</h3>
+      <p class="service-desc">Redacción, revisión y negociación de contratos comerciales para pymes y emprendedores. Acuerdos de servicios, contratos con proveedores y clientes, y documentación para el día a día del negocio.</p>
+    </div>
+    <div class="service-card">
+      <p class="service-num">02</p>
+      <h3 class="service-name">Legal & Compliance</h3>
+      <p class="service-desc">Asesoramiento en cumplimiento normativo y gestión de debida diligencia. Orientación en protocolos KYC/KYB y estructuración de procesos internos para operar dentro del marco legal.</p>
+    </div>
+    <div class="service-card">
+      <p class="service-num">03</p>
+      <h3 class="service-name">Regulación Fintech</h3>
+      <p class="service-desc">Asesoramiento legal a fintechs, PSAVs y startups digitales. Interpretación y aplicación de marcos normativos CNV y UIF en el contexto de activos digitales.</p>
+    </div>
+    <div class="service-card">
+      <p class="service-num">04</p>
+      <h3 class="service-name">Marcas & Propiedad Intelectual</h3>
+      <p class="service-desc">Registro y protección de marcas ante el INPI. Asesoramiento en estrategia de propiedad intelectual, oposiciones, renovaciones y defensa frente a usos no autorizados.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCIA -->
+<section class="experience fade-up" id="experiencia">
+  <div class="exp-header">
+    <div>
+      <p class="section-label">Experiencia</p>
+      <h2 class="section-title">Trayectoria<br><em>profesional</em></h2>
+    </div>
+    <div></div>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-period">2025 — 2026</div>
+      <div>
+        <p class="timeline-company">Huawei Technologies</p>
+        <h3 class="timeline-role">Contract Specialist</h3>
+        <p class="timeline-desc">Gestión del ciclo contractual completo con clientes corporativos de primer nivel como Telecom y Claro. Elaboración y negociación de Frame Contracts y Purchase Orders, conducción de procesos licitatorios y coordinación de aprobaciones interdepartamentales. Administración de facturación vía SAP Ariba y Sysmo.</p>
+        <div class="timeline-tags">
+          <span class="tag">Compliance</span>
+          <span class="tag">Frame Contracts</span>
+          <span class="tag">Licitaciones</span>
+          <span class="tag">Due diligence</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-period">2023 — 2024</div>
+      <div>
+        <p class="timeline-company">Cirion Technologies (ex-Lumen)</p>
+        <h3 class="timeline-role">Legal Sales Support — LATAM & USA</h3>
+        <p class="timeline-desc">Asesoramiento jurídico al área comercial en operaciones para LATAM y Estados Unidos. Revisión y análisis contractual, evaluación de términos y condiciones, protección de datos personales y cumplimiento de códigos de conducta corporativos.</p>
+        <div class="timeline-tags">
+          <span class="tag">Contratos</span>
+          <span class="tag">Legal Support</span>
+          <span class="tag">Sales</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMACIÓN -->
+<section class="formation fade-up" id="formacion">
+  <div class="formation-left">
+    <p class="section-label">Formación</p>
+    <h2 class="section-title">Educación<br>y <em>capacitación</em></h2>
+  </div>
+
+  <div>
+    <div class="formation-grid">
+      <div class="formation-item">
+        <p class="formation-year">2026</p>
+        <div>
+          <p class="formation-institution">ONG Bitcoin Argentina</p>
+          <p class="formation-title">Regulación de Activos Digitales y Criptomonedas</p>
+          <p class="formation-note">Seminario de formación especializada</p>
+        </div>
+      </div>
+      <div class="formation-item">
+        <p class="formation-year">2025</p>
+        <div>
+          <p class="formation-institution">UADE</p>
+          <p class="formation-title">Abogado</p>
+          <p class="formation-note">Universidad Argentina de la Empresa</p>
+        </div>
+      </div>
+      <div class="formation-item">
+        <p class="formation-year">2023</p>
+        <div>
+          <p class="formation-institution">ICB</p>
+          <p class="formation-title">Especialista en Inversiones Bursátiles</p>
+          <p class="formation-note">Instituto de Capacitación Bursátil · Buenos Aires</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contact fade-up" id="contacto">
+  <div>
+    <p class="section-label">Contacto</p>
+    <h2 class="section-title">Hablemos<br><em>hoy</em></h2>
+    <p class="contact-desc">
+      Hacé tu consulta. Tu negocio merece estar protegido.
+    </p>
+  </div>
+
+  <div class="contact-items">
+    <a href="https://wa.me/5491139180760" class="contact-item" target="_blank">
+      <div class="contact-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.554 4.107 1.523 5.832L.057 23.486a.5.5 0 0 0 .609.637l5.805-1.523A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.693-.528-5.222-1.443l-.374-.223-3.882 1.018 1.037-3.79-.244-.39A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      </div>
+      <div>
+        <p class="contact-item-label">WhatsApp</p>
+        <p class="contact-item-value">+54 9 11 3918-0760</p>
+      </div>
+    </a>
+    <a href="mailto:martinzurita33@gmail.com" class="contact-item">
+      <div class="contact-icon">✉</div>
+      <div>
+        <p class="contact-item-label">Email</p>
+        <p class="contact-item-value">martinzurita33@gmail.com</p>
+      </div>
+    </a>
+    <div class="contact-item" style="cursor:default;">
+      <div class="contact-icon">◎</div>
+      <div>
+        <p class="contact-item-label">Ubicación</p>
+        <p class="contact-item-value">Ciudad Autónoma de Buenos Aires</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-logo">Martin <span>Zurita</span></p>
+  <p>© 2025 · Abogado · CABA, Argentina</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  const toggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  toggle?.addEventListener('click', () => {
+    const open = navLinks.style.display === 'flex';
+    navLinks.style.display = open ? 'none' : 'flex';
+    navLinks.style.flexDirection = 'column';
+    navLinks.style.position = 'absolute';
+    navLinks.style.top = '64px';
+    navLinks.style.left = '0';
+    navLinks.style.right = '0';
+    navLinks.style.background = 'var(--cream)';
+    navLinks.style.padding = '1.5rem 1.75rem';
+    navLinks.style.borderBottom = '1px solid var(--border)';
+    navLinks.style.gap = '1.25rem';
+    if (open) navLinks.style.display = 'none';
+  });
+
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      if (window.innerWidth <= 900) navLinks.style.display = 'none';
+    });
+  });
+</script>
+</body>
+</html>
